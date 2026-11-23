@@ -1,0 +1,15 @@
+# Tax rules used by FDG. Kept apart from code so they can be updated and reviewed on their own.
+#
+# Every rule MUST have:
+#   id:          unique, never reused (e.g. VAT-001)
+#   description: what the rule says, in plain words
+#   value:       the number or condition
+#   source:      link to the OFFICIAL text (ETA, Official Gazette)
+#   source_date: date of the official text
+#   status:      "confirmed" (checked against the official text) or "to_verify"
+#
+# Do not add a rule without a source. Code must refuse to use rules with status "to_verify"
+# in final results unless explicitly allowed.
+
+version: 0
+rules: []

@@ -1,0 +1,29 @@
+# Runs automatically on every `git commit` after `uv run pre-commit install`.
+# It stops the commit if something is wrong, before it ever reaches GitHub.
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-toml
+      - id: check-merge-conflict
+      - id: detect-private-key
+      - id: check-added-large-files
+        args: ["--maxkb=1000"]
+
+  # Ruff runs from the project's own environment (the version pinned in uv.lock),
+  # so pre-commit, VS Code and CI all use exactly the same Ruff.
+  - repo: local
+    hooks:
+      - id: ruff
+        name: ruff
+        entry: uv run ruff check --fix
+        language: system
+        types_or: [python, pyi]
+      - id: ruff-format
+        name: ruff-format
+        entry: uv run ruff format
+        language: system
+        types_or: [python, pyi]
