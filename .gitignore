@@ -1,0 +1,36 @@
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+
+# ---- Virtual environment (each person has their own, never shared) ----
+.venv/
+
+# ---- Tool caches ----
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.ipynb_checkpoints/
+
+# ---- Secrets: NEVER commit. Copy .env.example to .env locally ----
+.env
+*.pem
+*.key
+
+# ---- Data: real or large data stays out of Git ----
+data/raw/
+data/processed/
+*.zip
+*.tar.gz
+
+# ---- Editors / OS ----
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+.idea/
+Thumbs.db
+Desktop.ini
+.DS_Store
