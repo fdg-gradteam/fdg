@@ -1,1 +1,3 @@
-# Mayar- Feature owner: Tax Regime Optimizer (Feature 1)- Foundation work: tax rules file, official law sources- Buddy: Yasmeen
+# Mayar- Feature owner:  
+Document Agent and review queue (Feature 3)- Foundation work: invoices 
+Buddy: laila
