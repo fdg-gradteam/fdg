@@ -23,3 +23,21 @@ Format: date, decision, why, alternatives considered.
 
 ## D-005 — Database and Docker decision postponed (2026-11-23)
 - **Why:** not needed until the ledger work starts; decide with real requirements in hand.
+
+
+## D-006 — PostgreSQL 16 in Docker as the database, Alembic for migrations (2026-11-28)
+- **Status:** Proposed (to confirm in team meeting 2026-11-28)
+- **Why:** database-level read-only role protects NL-to-SQL; same version on every laptop
+  and in CI; one command to start or reset; schema changes are versioned and reviewed.
+- **Alternatives:** SQLite (simpler, but no user roles and a different SQL dialect);
+  Supabase (free projects pause after inactivity); native Windows install (kept as fallback).
+- **Later:** a hosted copy on Neon for the demo.
+
+## D-007 — PydanticAI for the advisor agent (2026-11-28)
+- **Status:** Proposed (to confirm in team meeting 2026-11-28)
+- **Why:** tools and results are Pydantic models we already use; works with Gemini and
+  Ollama (provider swap); test model allows agent tests without API quota.
+- **Alternatives:** Gemini SDK directly (more hand-written code); LangGraph (built for
+  complex multi-step workflows, too heavy for one agent); AutoGen (not recommended for new projects).
+- **Safeguard:** version pinned in uv.lock; agent wrapped inside src/fdg/advisor/ so the
+  framework can be swapped in one place.
